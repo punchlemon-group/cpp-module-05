@@ -1,0 +1,60 @@
+# Compiled Object files
+*.o
+*.obj
+
+# Executables
+*.exe
+*.out
+*.app
+bureaucrat
+phonebook
+fixed
+claptrap
+fragtrap
+scavtrap
+diamondtrap
+
+# Object directories
+obj/
+objs/
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.a
+*.lib
+
+# Visual Studio Code
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Temporary files
+*~
+*.swp
+*.swo
+*.tmp
+
+# Debug files
+*.dSYM/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile.cmake
+
+# IDE files
+*.vcxproj*
+*.sln
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Backup files
+*.bak
