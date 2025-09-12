@@ -1,12 +1,12 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {}
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(_lowestGrade) {}
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
-  if (grade < 1) {
+  if (grade < _highestGrade) {
     throw Bureaucrat::GradeTooHighException();
   }
-  if (grade > 150) {
+  if (grade > _lowestGrade) {
     throw Bureaucrat::GradeTooLowException();
   }
   this->_grade = grade;
@@ -32,14 +32,14 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::incrementGrade() {
-  if (this->_grade - 1 < 1) {
+  if (this->_grade - 1 < _highestGrade) {
     throw Bureaucrat::GradeTooHighException();
   }
   this->_grade--;
 }
 
 void Bureaucrat::decrementGrade() {
-  if (this->_grade + 1 > 150) {
+  if (this->_grade + 1 > _lowestGrade) {
     throw Bureaucrat::GradeTooLowException();
   }
   this->_grade++;
@@ -54,6 +54,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
-  os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+  os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
   return os;
 }
