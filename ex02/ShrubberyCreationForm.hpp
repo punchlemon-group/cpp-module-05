@@ -6,6 +6,8 @@
 
 class ShrubberyCreationForm : public AForm {
   private:
+    static const int kSignGrade = 145;
+    static const int kExecGrade = 137;
     std::string _target;
 
   public:

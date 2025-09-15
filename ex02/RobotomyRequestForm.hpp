@@ -7,6 +7,8 @@
 
 class RobotomyRequestForm : public AForm {
   private:
+    static const int kSignGrade = 72;
+    static const int kExecGrade = 45;
     std::string _target;
 
   public:

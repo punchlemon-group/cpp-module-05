@@ -1,17 +1,17 @@
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), _target("default") {}
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", kSignGrade, kExecGrade), _target("default") {}
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
-    : AForm("RobotomyRequestForm", 72, 45), _target(target) {}
+    : AForm("RobotomyRequestForm", kSignGrade, kExecGrade), _target(target) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other)
     : AForm(other), _target(other._target) {}
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other) {
   if (this != &other) {
-    AForm::operator=(other);
+    this->AForm::operator=(other);
     this->_target = other._target;
   }
   return *this;
@@ -30,7 +30,6 @@ void RobotomyRequestForm::executeAction() const {
     seeded = true;
   }
 
-  // 50% chance of success
   if (std::rand() % 2) {
     std::cout << this->_target << " has been robotomized successfully!" << std::endl;
   } else {
