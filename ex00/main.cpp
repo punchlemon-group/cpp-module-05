@@ -19,7 +19,7 @@ int main() {
     Bureaucrat b3("Bender", 1);
     std::cout << b3 << std::endl;
     b3.incrementGrade(); // This should throw an exception
-  } catch (const std::exception& e) {
+  } catch (std::exception& e) {
     std::cout << "Exception: " << e.what() << std::endl;
   }
 
@@ -28,20 +28,20 @@ int main() {
     Bureaucrat b4("Fry", 150);
     std::cout << b4 << std::endl;
     b4.decrementGrade(); // This should throw an exception
-  } catch (const std::exception& e) {
+  } catch (std::exception& e) {
     std::cout << "Exception: " << e.what() << std::endl;
   }
 
   try {
     std::cout << std::endl << "--- Test 5: Invalid grade in constructor ---" << std::endl;
     Bureaucrat b5("Professor", 0); // This should throw an exception
-  } catch (const std::exception& e) {
+  } catch (std::exception& e) {
     std::cout << "Exception: " << e.what() << std::endl;
   }
 
   try {
     Bureaucrat b6("Zoidberg", 151); // This should throw an exception
-  } catch (const std::exception& e) {
+  } catch (std::exception& e) {
     std::cout << "Exception: " << e.what() << std::endl;
   }
 
