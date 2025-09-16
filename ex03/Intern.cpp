@@ -34,25 +34,19 @@ AForm* Intern::createPresidentialForm(const std::string& target) const {
 }
 
 AForm* Intern::makeForm(const std::string& formName, const std::string& target) const {
-  // Convert form name to lowercase for case-insensitive comparison
-  std::string lowerFormName = formName;
-  for (size_t i = 0; i < lowerFormName.length(); ++i) {
-    lowerFormName[i] = std::tolower(lowerFormName[i]);
-  }
-
   // Search for the form type
   for (int i = 0; i < 3; ++i) {
-    if (lowerFormName == _formTypes[i].name) {
+    if (formName == _formTypes[i].name) {
       std::cout << "Intern creates " << formName << std::endl;
       return (this->*_formTypes[i].creator)(target);
     }
   }
 
   // Form not found
-  std::cout << "Error: Form \"" << formName << "\" does not exist!" << std::endl;
+  std::cout << "Error: Form \"" << formName << "\" does not exist." << std::endl;
   throw Intern::FormNotFoundException();
 }
 
 const char* Intern::FormNotFoundException::what() const throw() {
-  return "Form not found!";
+  return "Form not found";
 }

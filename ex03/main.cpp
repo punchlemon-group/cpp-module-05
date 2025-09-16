@@ -51,27 +51,7 @@ int main() {
     std::cout << "Exception: " << e.what() << std::endl;
   }
 
-  std::cout << std::endl << "--- Test 2: Case insensitive form names ---" << std::endl;
-  try {
-    Intern intern;
-
-    AForm* form1 = intern.makeForm("ROBOTOMY REQUEST", "Marvin");
-    std::cout << *form1 << std::endl;
-    delete form1;
-
-    AForm* form2 = intern.makeForm("Shrubbery Creation", "park");
-    std::cout << *form2 << std::endl;
-    delete form2;
-
-    AForm* form3 = intern.makeForm("Presidential Pardon", "Zaphod");
-    std::cout << *form3 << std::endl;
-    delete form3;
-
-  } catch (const std::exception& e) {
-    std::cout << "Exception: " << e.what() << std::endl;
-  }
-
-  std::cout << std::endl << "--- Test 3: Invalid form names ---" << std::endl;
+  std::cout << std::endl << "--- Test 2: Invalid form names ---" << std::endl;
   try {
     Intern intern;
 
@@ -94,7 +74,7 @@ int main() {
     std::cout << "Exception caught: " << e.what() << std::endl;
   }
 
-  std::cout << std::endl << "--- Test 4: Multiple interns ---" << std::endl;
+  std::cout << std::endl << "--- Test 3: Multiple interns ---" << std::endl;
   try {
     Intern intern1;
     Intern intern2;
@@ -117,7 +97,7 @@ int main() {
     std::cout << "Exception: " << e.what() << std::endl;
   }
 
-  std::cout << std::endl << "--- Test 5: Copy and assignment ---" << std::endl;
+  std::cout << std::endl << "--- Test 4: Copy and assignment ---" << std::endl;
   try {
     Intern originalIntern;
 
