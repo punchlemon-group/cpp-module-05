@@ -5,6 +5,8 @@
 
 class PresidentialPardonForm : public AForm {
   private:
+    static const int kSignGrade = 25;
+    static const int kExecGrade = 5;
     std::string _target;
 
   public:
